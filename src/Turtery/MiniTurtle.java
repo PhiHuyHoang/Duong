@@ -6,6 +6,7 @@
 package Turtery;
 
 import Exceptions.MiniTurtleCannotFightException;
+import Exceptions.NotSameAquariumException;
 
 /**
  *
@@ -13,6 +14,10 @@ import Exceptions.MiniTurtleCannotFightException;
  */
 public class MiniTurtle extends Turtle {
     private int age;
+
+    public MiniTurtle(Handler owner, Factor cutenessFactor, int size, int bitePower) {
+        super(owner, cutenessFactor, size, bitePower);
+    }
 
     public int getAge() {
         return age;
@@ -34,11 +39,15 @@ public class MiniTurtle extends Turtle {
      * @throws MiniTurtleCannotFightException
      */
     @Override
-    public Factor duel(Turtle turtle) throws MiniTurtleCannotFightException
+    public Factor duel(Turtle turtle) throws MiniTurtleCannotFightException, NotSameAquariumException
     {
         if(this.mature() != 0)
         {
             throw new MiniTurtleCannotFightException();
+        }
+        else
+        {
+            return turtle.duel(this);
         }
     }
 }

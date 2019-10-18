@@ -25,10 +25,18 @@ public class Turtle {
     public Factor cutenessFactor;
     public int size;
     public int bitePower;
+
+    public Turtle(Handler owner, Factor cutenessFactor, int size, int bitePower) {
+        this.owner = owner;
+        this.cutenessFactor = cutenessFactor;
+        this.size = size;
+        this.bitePower = bitePower;
+    }
+    
     
     public Factor duel(Turtle turtle) throws NotSameAquariumException, MiniTurtleCannotFightException
     {
-        if(!this.owner.equals(turtle.getOwner()))
+        if(this.owner != turtle.getOwner())
         {
             throw new NotSameAquariumException();
         }

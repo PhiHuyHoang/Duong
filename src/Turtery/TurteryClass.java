@@ -16,7 +16,18 @@ public class TurteryClass {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        Handler A = new Handler("A");
+        Handler B = new Handler("B");
+        Turtle turtleA = new Turtle(A,Factor.ADORABLE,0,0);
+        Turtle turtleB = new Turtle(B,Factor.MENACING,0,0);
+        try
+        {
+            turtleA.duel(turtleB);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
     
 }
